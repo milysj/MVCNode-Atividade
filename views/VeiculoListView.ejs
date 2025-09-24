@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Veículos</title>
+</head>
+<body>
+    <h2>Veículos</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr style="font-weight: bold; background-color: rgb(186, 186, 186);">
+            <th>ID</th><th>Modelo</th><th>Marca</th><th>Ano</th><th>Ações</th>
+        </tr>
+        <% veiculos.forEach(function(veiculo) { %>
+            <tr>
+                <td style="font-weight: b;"><%= veiculo.id %></td>
+                <td><%= veiculo.modelo %></td>
+                <td><%= veiculo.marca %></td>
+                <td><%= veiculo.ano %></td>
+                <td>
+                    <a href="/veiculos/editar/<%= veiculo.id %>" style="display: inline-block; padding: 5px 10px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 5px;">Editar</a>
+                    <form action="/veiculos/excluir/<%= veiculo.id %>" method="POST" style="display:inline;">
+                        <button type="submit" style="padding: 5px 10px; background-color: #f44336; color: white; border: none; border-radius: 5px;">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+    <a href="/veiculos/novo" style="display: inline-block; margin-top: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Cadastrar Novo Veículo</a>
+    
+</body>
+</html>
